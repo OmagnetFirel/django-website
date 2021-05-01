@@ -1,0 +1,14 @@
+{% extends "homebase.html" %}
+ 
+{% block preloader %}{% include 'preloader.html'%}{% endblock %}
+{% block header  %}{% include 'header.html'%}{% endblock  %}
+{% block main_banner %}{% include 'main_banner.html'%}{% endblock  %}
+<section class="blog-spot">
+<div class="container">
+    <div class="row">
+        {% block content %}{% include 'content.html'%}{% endblock  %}
+        {% block aside %}{% include 'aside.html'%}{% endblock  %}
+    </div>
+</div
+</section>
+{% block footer %}{% include 'footer.html'%}{% endblock  %}

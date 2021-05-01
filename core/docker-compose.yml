@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  teste-postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: q0a0z0x0
+      POSTGRES_DB: database
+    ports:
+      - "5433:5433"
+    volumes:
+      - /home/victor/PostgreSQL 
+    networks:
+      - postgres-compose-network
+    
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
