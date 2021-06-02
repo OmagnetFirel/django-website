@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria,Publicacao
+from .models import Categoria,Publicacao,Comentario
 # Register your models here.
 
 class CategoriaAdmin(admin.ModelAdmin):
@@ -13,6 +13,13 @@ class PublicacaoAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('image_table',)
     list_filter = ['category']
+    
+    
+class ComentarioAdmin(admin.ModelAdmin):
+    list_display = ['name','status','email']
+    list_filter = ['status']
+
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Publicacao, PublicacaoAdmin)
+admin.site.register(Comentario, ComentarioAdmin)

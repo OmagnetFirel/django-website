@@ -37,3 +37,23 @@ class Publicacao(models.Model):
             return mark_safe('<img src="{}" height="50" width="50">'.format(self.image.url))
         else:
             return mark_safe('<p> Sem Imagem </p>')
+        
+        
+
+class Comentario(models.Model):
+    
+    STATUS = (
+        ('Lido', 'Lido'),
+        ('Não Lido', 'Não Lido')
+        ) 
+        
+    post = models.ForeignKey(Publicacao, on_delete=models.CASCADE, null=False)
+     
+    name = models.CharField(max_length=25, blank=False)
+    email = models.CharField(max_length=50,blank=False)
+    comentario = models.TextField()
+    status = models.CharField(choices=STATUS, max_length=10, default="Não Lido")
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name    

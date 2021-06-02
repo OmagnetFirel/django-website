@@ -81,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #preloader {
   overflow: hidden;
-  background: #f48840;
+  background: #90e0ef;
   left: 0;
   right: 0;
   top: 0;
@@ -355,6 +355,10 @@ header .navbar {
 	text-align: center;
 	line-height: 60px;
 	background-color: rgba(250,250,250,0.3);
+}
+
+.midle-content{
+	padding-top:4em;
 }
 
 

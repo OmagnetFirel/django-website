@@ -1,0 +1,44 @@
+ <div class="col-lg-8 midle-content">
+            <div class="all-blog-posts">
+              <div class="row">
+            {% for item in page_obj %}
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                        <div class="blog-thumb">
+                            <img style="width:16em" src="{{item.image.url}}" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>{{item.categoria}}</span>
+                            <a href="post-details.html"><h4>{{item.title}}</h4></a>
+                            <ul class="post-info">
+                                <li><a href="#">{{item.user.first_name}}</a></li>
+                                <li><a href="#">{{item.updated_at |date:'d/m/Y'}}</a></li>
+                                <li><a href="#">12 Comments</a></li>
+                            </ul>
+                            <p>{{item.description}}</p>                        
+                        </div>
+                  </div>
+                </div>
+            {% endfor %}
+                <div class="col-lg-12">
+                  <ul class="page-numbers">
+                   {% if page_obj.has_previous %}
+                        <li>
+                            <a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a>
+                        </li>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <li>
+                            <a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-double-right"></i></a>
+                        </li>
+                    {% endif %}                
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
